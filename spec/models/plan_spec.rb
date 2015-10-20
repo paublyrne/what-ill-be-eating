@@ -9,7 +9,6 @@ RSpec.describe Plan do
       expect(plan).to be_unplanned
     end
 
-
   end
   describe "estimates" do
     let(:plan) { Plan.new }
@@ -23,6 +22,11 @@ RSpec.describe Plan do
 
     it "can calculate the total meal preparation time" do
       expect(plan.total_meal_preparation_minutes).to eq(110)
+    end
+
+    it "can calculate the remaining meal preparation time " do
+      quick_meal.make
+      expect(plan.remaining_meal_preparation_minutes).to eq(95)
     end
   end
 
