@@ -28,6 +28,12 @@ RSpec.describe Plan do
       quick_meal.make
       expect(plan.remaining_meal_preparation_minutes).to eq(95)
     end
+
+    it "can calculate the average time spent on preparation so far this plan" do
+      quick_meal.make
+      slow_meal.make
+      expect(plan.average_meal_preparation_time_so_far).to eq(40)
+    end
   end
 
 end
