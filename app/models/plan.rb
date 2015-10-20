@@ -7,4 +7,8 @@ class Plan
   def unplanned?
     meals.empty?
   end
+
+  def total_meal_preparation_minutes
+    meals.sum(&:preparation_minutes)
+  end
 end

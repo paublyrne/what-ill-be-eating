@@ -1,7 +1,8 @@
 class Meal
-  attr_accessor :made
-  def initialize
+  attr_accessor :made, :preparation_minutes
+  def initialize(preparation_minutes: 0)
     @made = false
+    @preparation_minutes = preparation_minutes
   end
 
   def made?
