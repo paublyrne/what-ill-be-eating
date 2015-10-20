@@ -33,15 +33,15 @@ class Plan
   end
 
   def average_scheduled_preparation_time_so_far
-    total_scheduled_preparation_time_so_far / made_meals.length
+    total_scheduled_preparation_time_so_far.to_f  / made_meals.length
   end
 
   def average_actual_preparation_time_so_far
-    total_actual_preparation_time_so_far / made_meals.length
+    total_actual_preparation_time_so_far.to_f / made_meals.length
   end
 
   def average_extra_preparation_time_spent
-    average_actual_preparation_time_so_far - average_scheduled_preparation_time_so_far
+    average_actual_preparation_time_so_far.to_f - average_scheduled_preparation_time_so_far
   end
 
 end

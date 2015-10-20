@@ -10,6 +10,7 @@ RSpec.describe Plan do
     end
 
   end
+
   describe "estimates" do
     let(:plan) { Plan.new }
     let(:quick_meal) { Meal.new(scheduled_preparation_minutes: 15) }
@@ -36,10 +37,9 @@ RSpec.describe Plan do
     end
 
     it "can calculate the difference between scheduled preparation time and actual preparation time so far this plan" do
-      quick_meal.make(15)
+      quick_meal.make(16)
       slow_meal.make(75)
-      expect(plan.average_extra_preparation_time_spent).to eq(5)
+      expect(plan.average_extra_preparation_time_spent).to eq(5.5)
     end
   end
-
 end
