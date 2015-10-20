@@ -16,16 +16,32 @@ class Plan
     meals.empty?
   end
 
-  def total_meal_preparation_minutes
-    meals.sum(&:preparation_minutes)
+  def total_scheduled_preparation_minutes
+    meals.sum(&:scheduled_preparation_minutes)
   end
 
-  def remaining_meal_preparation_minutes
-    unmade_meals.sum(&:preparation_minutes)
+  def total_scheduled_preparation_time_so_far
+    made_meals.sum(&:scheduled_preparation_minutes)
   end
 
-  def average_meal_preparation_time_so_far
-    made_meals.sum(&:preparation_minutes) / made_meals.length
+  def total_actual_preparation_time_so_far
+    made_meals.sum(&:actual_preparation_minutes)
+  end
+
+  def remaining_scheduled_preparation_minutes
+    unmade_meals.sum(&:scheduled_preparation_minutes)
+  end
+
+  def average_scheduled_preparation_time_so_far
+    total_scheduled_preparation_time_so_far / made_meals.length
+  end
+
+  def average_actual_preparation_time_so_far
+    total_actual_preparation_time_so_far / made_meals.length
+  end
+
+  def average_extra_preparation_time_spent
+    average_actual_preparation_time_so_far - average_scheduled_preparation_time_so_far
   end
 
 end
