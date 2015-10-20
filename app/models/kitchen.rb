@@ -1,11 +1,11 @@
 class Kitchen
-  attr_accessor :ingredients
+  attr_accessor :kitchen_items
   def initialize
-    @ingredients = []
+    @kitchen_items = []
   end
 
   def empty?
-    ingredients.empty?
+    kitchen_items.empty?
   end
 
 end
